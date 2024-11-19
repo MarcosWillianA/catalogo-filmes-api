@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Catálogo de Filmes</title>
 </head>
-<body>
+<body class="h-screen bg-gradient-to-b from-slate-900 to-amber-400 ...">
+    <main>
+        <div id="container" class="sm mt-4 mx-auto p-2.5 border border-red-500 bg-slate-800">
+            <div id="campo-busca" class="flex justify-center gap-4">
+                <input type="text" name="nome-filme" id="nome-filme">
+                <button id="botao-busca">Buscar</button>
+            </div>
+            <div id="segundo-container" class="sm border border-red-400">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam magni veritatis ipsum, voluptatibus sunt cum hic esse blanditiis accusamus repudiandae? Facilis dicta nulla incidunt odit doloribus laborum, est officia necessitatibus?
+                </p>
+            </div>
+        </div>
+        <footer></footer>
+    </main>
     
+    <script src="js/script.js"></script>
 </body>
 </html>
