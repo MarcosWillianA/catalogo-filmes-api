@@ -62,6 +62,23 @@ body {
     color: #cbd5e1;
 }
 
+#filmes-encontrados {
+    border: 1px solid orange;
+}
+
+#lista-filmes-encontrados {
+    list-style-type: none;
+}
+
+#lista-filmes-encontrados li {
+    margin: 10px 0;
+}
+
+#lista-filmes-encontrados li a {
+    text-decoration: none;
+    color: inherit;
+}
+
 #filme h1, h2, h3, h4 {
     color: #fff;
 }
