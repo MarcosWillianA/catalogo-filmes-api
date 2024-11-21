@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+    background: linear-gradient(#020617 50%, #facc15 50%);
+}
+
+#container {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #334155;
+    
+}
+
+#campo-busca {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin-bottom: 5px;
+    padding: 10px 0;
+    border: 1px solid orangered;
+}
+
+#texto-busca {
+    width: 100%;
+    padding: 8px 4px;
+    border: 1px solid #64748b;
+    border-radius: 5px;
+    background-color: inherit;
+    color: #fff;
+}
+
+#texto-busca:focus {
+    outline: none;
+}
+
+#botao-busca {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fcd34d;
+}
+
+#botao-busca:active {
+    background-color: #fef08a;
+}
+
+/* Filme */
+
+#filme {
+    border: 1px solid orangered;
+    color: #cbd5e1;
+}
+
+#filme h1, h2, h3, h4 {
+    color: #fff;
+}
+
+i {
+    color: #facc15;
+}
+
+#titulo-filme {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid orange;
+}
+
+#poster {
+    width: 50%;
+    height: 200px;
+    margin: auto;
+    border: 1px solid yellow;
+}
+
+#detalhes-filme {
+    width: 100%;
+    border: 1px solid yellow;
+    text-align: center;
+}
+
+#descricao-filme {
+    padding: 10px 0;
+    border: 1px solid orange;
+}
+
+footer p {
+    font-size: .7em;
+    text-align: center;
+    color: white;
+}

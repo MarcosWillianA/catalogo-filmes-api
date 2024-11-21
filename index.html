@@ -3,26 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
     <title>Catálogo de Filmes</title>
 </head>
 <body class="h-screen bg-gradient-to-b from-slate-900 to-amber-400 ...">
     <main>
-        <div id="container" class="w-[320px] mt-4 mx-auto p-2.5 border border-red-500 bg-slate-800">
-            <div id="campo-busca" class="flex justify-center gap-4">
-                <input type="text" name="nome-filme" id="nome-filme">
+        <div id="container">
+            <div id="campo-busca">
+                <input type="text" name="texto-busca" id="texto-busca" placeholder="Digite o nome do filme aqui...">
                 <button id="botao-busca">Buscar</button>
             </div>
-            <div id="segundo-container" class="sm border border-red-400">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam magni veritatis ipsum, voluptatibus sunt cum hic esse blanditiis accusamus repudiandae? Facilis dicta nulla incidunt odit doloribus laborum, est officia necessitatibus?
-                </p>
+            <div id="filme">
+                <div id="titulo-filme">
+                    <div id="poster">
+                        <!--Imagem gerada dinamicamente-->
+                    </div>
+                    <div id="detalhes-filme">
+                        <h3>Lorem Ipsum</h3>
+                        <h4><i class="fa-solid fa-star"></i> 9.0</p></h4>
+                        <p id="pg-data-duracao">PG-13 1987 110 min</p>
+                        <span class="genero-filme">Ação</span>
+                    </div>
+                </div>
+                <div id="descricao-filme">
+                    <h4>Trama: </h4>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem voluptate est tempora facilis tempore exercitationem necessitatibus optio, iusto amet, quod nihil numquam ducimus cum molestias! Eveniet consequatur aperiam illo mollitia!
+                    </p>
+                    <h4>Elenco:</h4>
+                    <p>
+                        Fulano, Sicrano, Beltrano
+                    </p>
+                </div>
+            </div>
+                
             </div>
         </div>
-        <footer></footer>
+        <footer>
+            <p>App criado por Marcos Willian</p>
+        </footer>
     </main>
     
     <script src="js/script.js"></script>
+    <script src="js/key.js"></script>
 </body>
 </html>

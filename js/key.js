@@ -1,0 +1,1 @@
+const chave = '25c0593d';
