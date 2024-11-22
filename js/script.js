@@ -50,13 +50,22 @@ async function mostrarFilme(imdbID) {
     try {
         const resposta = await fetch(`${url}i=${imdbID}`);
         const filme = await resposta.json();
-        if(!resposta.ok || filme.Response === 'False');
+        if(!resposta.ok || filme.Response === 'False') {
             throw new Error('Erro ao buscar detalhes do filme');
+        }
+        poster.src = filme.Poster !== 'N/A' ? filme.Poster : 'img/placeholder.jpg';
+        detalhesFilme.innerHTML = `
+            <h3>${filme.Title}</h3>
+            <h4><i class="fa-solid fa-star"></i> ${filme.imdbRating}</h4>
+            <p>${filme.Rated} ${filme.Year} ${filme.Runtime}</p>
+            <span class="genero-filme">${filme.Genre}</span>
+        `
+        
     }
     
     catch (erro) {
         console.error(erro);
-        detalhesFilme.innerHTML = 'Erro ao carregar detalhes do filme';
+        detalhesFilme.innerHTML = 'Erro ao carregar detalhes do filme'
     }
 }
 
