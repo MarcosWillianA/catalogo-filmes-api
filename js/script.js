@@ -53,23 +53,33 @@ async function mostrarFilme(imdbID) {
         if(!resposta.ok || filme.Response === 'False') {
             throw new Error('Erro ao buscar detalhes do filme');
         }
-        poster.src = filme.Poster !== 'N/A' ? filme.Poster : 'img/placeholder.jpg';
+        const imgPoster = document.createElement('img');
+        imgPoster.src = filme.Poster !== 'N/A' ? filme.Poster : 'img/placeholder.jpg';
+        imgPoster.style.display = 'block';
+        imgPoster.style.width = '100%';
+        imgPoster.style.height = '100%';
+        imgPoster.style.objectFit = 'contain';
+        poster.appendChild(imgPoster);
+        detalhesFilme.innerHTML = '';
+        descricaoFilme.innerHTML = '';
         detalhesFilme.innerHTML = `
             <h3>${filme.Title}</h3>
             <h4><i class="fa-solid fa-star"></i> ${filme.imdbRating}</h4>
             <p>${filme.Rated} ${filme.Year} ${filme.Runtime}</p>
             <span class="genero-filme">${filme.Genre}</span>
-        `
-        
+        `;
+        descricaoFilme.innerHTML = `
+            <h4>Trama:</h4>
+            <p>${filme.Plot !== 'N/A' ? filme.Plot : 'Descrição não disponível'}</p>
+            <h4>Elenco:</h4>
+            <p>${filme.Actors}</p>
+        `;
     }
-    
     catch (erro) {
         console.error(erro);
         detalhesFilme.innerHTML = 'Erro ao carregar detalhes do filme'
     }
 }
-
-mostrarFilme();
 
 botaoBusca.addEventListener('click', exibirResultadosBusca);
 textoBusca.addEventListener('keydown', evento => {
