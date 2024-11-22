@@ -4,8 +4,8 @@ const listaFilmesEncontrados = document.querySelector('#lista-filmes-encontrados
 const poster = document.querySelector('#poster');
 const detalhesFilme = document.querySelector('#detalhes-filme');
 const descricaoFilme = document.querySelector('#descricao-filme');
-const url = `http://www.omdbapi.com/?apikey=${chave}&`;
-const posterAPI = `http://img.omdbapi.com/?apikey=${chave}&`;
+const url = `https://www.omdbapi.com/?apikey=${chave}&`;
+const posterAPI = `https://img.omdbapi.com/?apikey=${chave}&`;
 
 async function buscarDados() {
     if (!textoBusca.value.trim()) {
@@ -33,15 +33,34 @@ async function exibirResultadosBusca() {
         listaFilmesEncontrados.innerHTML = 'Nenhum filme encontrado';
         return;
     }
-        console.log(filmesEncontrados);
         filmesEncontrados.forEach(filme => {
-        const itemLista = document.createElement('li');
-        const linkFilme = document.createElement('a');
-        linkFilme.innerHTML = `${filme.Title} (${filme.Year})`;
-        listaFilmesEncontrados.appendChild(itemLista);
-        itemLista.appendChild(linkFilme);
+            const itemLista = document.createElement('li');
+            const linkFilme = document.createElement('a');
+            linkFilme.setAttribute('href', '#');
+            linkFilme.innerHTML = `${filme.Title} (${filme.Year})`;
+            listaFilmesEncontrados.appendChild(itemLista);
+            itemLista.appendChild(linkFilme);
+            linkFilme.addEventListener('click', () => {
+                mostrarFilme(filme.imdbID); // Passa o ID do filme para buscar os detalhes
+            });
         });
 }
+
+async function mostrarFilme(imdbID) {
+    try {
+        const resposta = await fetch(`${url}i=${imdbID}`);
+        const filme = await resposta.json();
+        if(!resposta.ok || filme.Response === 'False');
+            throw new Error('Erro ao buscar detalhes do filme');
+    }
+    
+    catch (erro) {
+        console.error(erro);
+        detalhesFilme.innerHTML = 'Erro ao carregar detalhes do filme';
+    }
+}
+
+mostrarFilme();
 
 botaoBusca.addEventListener('click', exibirResultadosBusca);
 textoBusca.addEventListener('keydown', evento => {
