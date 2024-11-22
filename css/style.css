@@ -9,11 +9,12 @@ body {
     width: 100vw;
     height: 100vh;
     padding: 10px;
-    background: linear-gradient(#020617 50%, #facc15 50%);
+    background: linear-gradient(#020617 50%, #0F172A 50%);
 }
 
 #container {
-    width: 100%;
+    min-width: 300px;
+    max-width: 640px;
     margin: auto;
     padding: 10px;
     border-radius: 10px;
@@ -75,15 +76,13 @@ body {
 
 #lista-filmes-encontrados li:hover {
     background-color: #94A3B8;
+    color:#facc15;
+    cursor: pointer;
 }
 
 #lista-filmes-encontrados li a {
     text-decoration: none;
     color: inherit;
-}
-
-#lista-filmes-encontrados li a:hover {
-    color:#facc15
 }
 
 #filme h1, h2, h3, h4 {
@@ -100,13 +99,18 @@ i {
 }
 
 #poster {
-    width: 50%;
+    flex-shrink: 3;
     height: 200px;
     margin: auto;
 }
 
 #detalhes-filme {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
     width: 100%;
+    padding: 5px 0;
     text-align: center;
 }
 
@@ -120,4 +124,19 @@ footer p {
     font-size: .7em;
     text-align: center;
     color: white;
+}
+
+@media (min-width: 640px) {
+    #titulo-filme {
+        display: none;
+        flex-wrap: nowrap;
+        justify-content: space-between; 
+    }
+
+    #poster {
+        width: 50%;
+        height: 200px;
+        margin: auto;
+        text-align: left;
+    }
 }

@@ -58,6 +58,8 @@ async function mostrarFilme(imdbID) {
         if(!resposta.ok || filme.Response === 'False') {
             throw new Error('Erro ao buscar detalhes do filme');
         }
+        textoBusca.value = '';
+        textoBusca.focus();
         filmesEncontrados.style.display = 'none';
         tituloFilme.style.display = 'flex';
         descricaoFilme.style.display = 'block';
