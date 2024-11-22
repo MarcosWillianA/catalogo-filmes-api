@@ -28,7 +28,6 @@ body {
     gap: 5px;
     margin-bottom: 5px;
     padding: 10px 0;
-    border: 1px solid orangered;
 }
 
 #texto-busca {
@@ -58,12 +57,12 @@ body {
 /* Filme */
 
 #filme {
-    border: 1px solid orangered;
+    
     color: #cbd5e1;
 }
 
 #filmes-encontrados {
-    border: 1px solid orange;
+    display: none;    
 }
 
 #lista-filmes-encontrados {
@@ -74,9 +73,17 @@ body {
     margin: 10px 0;
 }
 
+#lista-filmes-encontrados li:hover {
+    background-color: #94A3B8;
+}
+
 #lista-filmes-encontrados li a {
     text-decoration: none;
     color: inherit;
+}
+
+#lista-filmes-encontrados li a:hover {
+    color:#facc15
 }
 
 #filme h1, h2, h3, h4 {
@@ -88,30 +95,28 @@ i {
 }
 
 #titulo-filme {
-    display: flex;
+    display: none; /* flex */
     flex-wrap: wrap;
-    border: 1px solid orange;
 }
 
 #poster {
     width: 50%;
     height: 200px;
     margin: auto;
-    border: 1px solid yellow;
 }
 
 #detalhes-filme {
     width: 100%;
-    border: 1px solid yellow;
     text-align: center;
 }
 
 #descricao-filme {
+    display: none; /* block */
     padding: 10px 0;
-    border: 1px solid orange;
 }
 
 footer p {
+    margin: 5px 0;
     font-size: .7em;
     text-align: center;
     color: white;

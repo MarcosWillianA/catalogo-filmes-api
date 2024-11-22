@@ -1,6 +1,8 @@
 const textoBusca = document.querySelector('#texto-busca');
 const botaoBusca = document.querySelector('#botao-busca');
+const filmesEncontrados = document.querySelector('#filmes-encontrados');
 const listaFilmesEncontrados = document.querySelector('#lista-filmes-encontrados');
+const tituloFilme = document.querySelector('#titulo-filme');
 const poster = document.querySelector('#poster');
 const detalhesFilme = document.querySelector('#detalhes-filme');
 const descricaoFilme = document.querySelector('#descricao-filme');
@@ -27,13 +29,16 @@ async function buscarDados() {
 }
 
 async function exibirResultadosBusca() {
-    const filmesEncontrados = await buscarDados();
+    const resultadoBusca = await buscarDados();
+    filmesEncontrados.style.display = 'block';
+    tituloFilme.style.display = 'none';
+    descricaoFilme.style.display = 'none';
     listaFilmesEncontrados.innerHTML = '';
-    if (!filmesEncontrados || filmesEncontrados.length === 0) {
+    if (!resultadoBusca || resultadoBusca.length === 0) {
         listaFilmesEncontrados.innerHTML = 'Nenhum filme encontrado';
         return;
     }
-        filmesEncontrados.forEach(filme => {
+        resultadoBusca.forEach(filme => {
             const itemLista = document.createElement('li');
             const linkFilme = document.createElement('a');
             linkFilme.setAttribute('href', '#');
@@ -53,6 +58,10 @@ async function mostrarFilme(imdbID) {
         if(!resposta.ok || filme.Response === 'False') {
             throw new Error('Erro ao buscar detalhes do filme');
         }
+        filmesEncontrados.style.display = 'none';
+        tituloFilme.style.display = 'flex';
+        descricaoFilme.style.display = 'block';
+        poster.innerHTML = '';
         const imgPoster = document.createElement('img');
         imgPoster.src = filme.Poster !== 'N/A' ? filme.Poster : 'img/placeholder.jpg';
         imgPoster.style.display = 'block';
